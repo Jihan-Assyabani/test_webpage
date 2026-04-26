@@ -57,6 +57,35 @@
             > 
         </iframe>
     </div>
+
+    <div id="map" style="height:400px;"></div>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <script>
+      var map = L.map('map').setView([-6.2563, 107.1476], 12);
+    
+      // Base map
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+    
+      // Polygon coordinates (example)
+      var polygon = L.polygon([
+        [-6.20, 107.10],
+        [-6.30, 107.10],
+        [-6.30, 107.20],
+        [-6.20, 107.20]
+      ], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.3
+      }).addTo(map);
+    
+      // Optional popup
+      polygon.bindPopup("My polygon area");
+    </script>
     
     <div class="card">
         <h2>Welcome</h2>
